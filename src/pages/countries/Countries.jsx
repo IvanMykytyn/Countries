@@ -1,6 +1,5 @@
-// import './countries.styles.scss'
 import React from 'react'
-
+import './countries.styles.scss'
 
 const Countries = () => {
   return (
