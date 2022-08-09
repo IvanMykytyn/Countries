@@ -10,6 +10,7 @@ const App = () => {
       <Routes>
         <Route path="/countries" element={<Countries />} />
         <Route path="/country" element={<Country />} />
+        <Route path="*" element={<h2>Not Found</h2>} />
       </Routes>
     </BrowserRouter>
   )

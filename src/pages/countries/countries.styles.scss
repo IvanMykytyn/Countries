@@ -1,3 +1,47 @@
-div{
-    color: red;
+.countries {
+  color: var(--the-darkest-blue);
+  position: relative;
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    position: absolute;
+    top: 0;
+
+    width: 100%;
+    height: 85px;
+    padding: 10px 100px 10px 80px;
+
+    box-shadow: var(--shadow-1);
+
+    .header__text {
+      font-size: 1.6rem;
+      font-weight: 800;
+    }
+  }
+  .switch-theme {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    background: inherit;
+    border: none;
+
+    &__text {
+      font-size: 1.05rem;
+      font-weight: 600;
+    }
+  }
+
+  main {
+    // padding top - height of navbar + 40px
+    padding: 140px 100px 120px 80px;
+
+    // remove after some stuff
+    min-height: 100vh;
+
+    background-color: var(--light-gray);
+  }
 }

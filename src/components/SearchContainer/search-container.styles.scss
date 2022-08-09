@@ -1,0 +1,26 @@
+.search {
+  &__input {
+    position: relative;
+    &__icon {
+      position: absolute;
+
+      // align center
+      top: 50%;
+      transform: translate(0, -50%);
+
+      margin-left: 10px;
+    }
+    input {
+      height: 50px;
+      min-width: 500px;
+      font-size: 14px;
+      background-color: #000;
+      background-repeat: no-repeat;
+      background-position: left center;
+      padding-left: 40px;
+      background-color: #fff;
+      border: 1px solid #000;
+      box-shadow: none;
+    }
+  }
+}
