@@ -1,0 +1,46 @@
+.form-row{
+    position: relative;
+    &__select{
+        font-size: 0.9rem;
+        color: var(--the-darkest-blue);
+
+        min-width: 210px;
+        height: 60px;
+
+        padding: 0 14px 0 25px;
+ 
+        border: none;
+        border-radius: var(--border-radius);
+        background-color: var(--white);
+        
+        box-shadow: var(--shadow-1);
+        
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        cursor: pointer;
+        
+    }
+    &__options{
+        position: absolute;
+
+        background-color: var(--white);
+
+        border: none;
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow-1);
+
+        top: 65px;
+        padding: 10px 20px;
+        width: 100%;
+
+        transition: var(--transition);
+    }
+
+    &__option{
+        margin: 10px 0;
+        text-transform: capitalize;
+        cursor: pointer;
+    }
+}

@@ -28,8 +28,11 @@ body {
   --white: hsl(0, 0%, 100%);
 
   /* fonts  */
-  --mainFont: 'Nunito Sans', sans-serif;
+  --main-font: 'Nunito Sans', sans-serif;
 
+  --border-radius: 5px;
+  --transition: 0.3s ease-in-out all;
+  
   // shadows
   --shadow-1: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   --shadow-2: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
