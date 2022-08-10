@@ -1,16 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './search-container.styles.scss'
+import { useDispatch, useSelector } from 'react-redux'
 
 // icons
 import { AiOutlineSearch } from 'react-icons/ai'
 
 // components
-import { FormRowSelect } from '../'
+import { FormRowRegionSelect } from '../'
 
 // utils
 import regions from '../../utils/regions'
 
+// actions
+import { setSearch } from '../../features/countrySlice'
+
 const SearchContainer = () => {
+  const dispatch = useDispatch()
+  const { search } = useSelector((store) => store.country)
+
+  const handleSearch = (e) => {
+    dispatch(setSearch(e.target.value))
+  }
+
   return (
     <div className="search">
       <div className="search__container">
@@ -19,11 +30,13 @@ const SearchContainer = () => {
           <input
             type="text"
             name="search"
+            value={search}
+            onChange={handleSearch}
             placeholder="Search for a country..."
           />
         </div>
         <div className="search_filter">
-          <FormRowSelect name="region" list={regions} />
+          <FormRowRegionSelect list={regions} />
         </div>
       </div>
     </div>

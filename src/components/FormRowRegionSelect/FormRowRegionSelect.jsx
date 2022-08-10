@@ -1,34 +1,47 @@
 import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+
 import './form-row-select.styles.scss'
+
+// actions
+import { setRegion } from '../../features/countrySlice'
+import { getCountries } from '../../features/countrySlice'
 
 // icons
 import { RiArrowDropDownLine } from 'react-icons/ri'
+import { useEffect } from 'react'
 
-
-const FormRowSelect = ({ name, value, handleChange, list }) => {
+const FormRowRegionSelect = ({ list }) => {
+  const dispatch = useDispatch()
+  const { search } = useSelector((store) => store.country)
   const [isOpenDropDown, SetIsOpenDropDown] = useState(false)
-  const [filter, setFilter] = useState('')
+  const [filter, setFilter] = useState('All')
 
   const handleFilter = (region) => {
-    console.log(filter)
     setFilter(region)
     SetIsOpenDropDown((prev) => !prev)
   }
 
+  useEffect(() => {
+    dispatch(setRegion(filter))
+    dispatch(getCountries())
+  }, [search, filter])
+
   return (
     <div className="form-row">
       <button
-        name={name}
         className="form-row__select"
         onClick={() => SetIsOpenDropDown((prev) => !prev)}
       >
-        <p>{isOpenDropDown || !filter ? 'Filter by Region' : filter}</p>
+        <p>
+          {isOpenDropDown || filter === 'All' ? 'Filter by Region' : filter}
+        </p>
         <RiArrowDropDownLine
           size={26}
           style={{ transform: `rotate(${isOpenDropDown ? '180deg' : '0'})` }}
         />
       </button>
-      <div className={isOpenDropDown && 'form-row__options'}>
+      <div className={isOpenDropDown ? 'form-row__options' : ''}>
         {isOpenDropDown &&
           list.map((itemValue, index) => {
             return (
@@ -46,4 +59,4 @@ const FormRowSelect = ({ name, value, handleChange, list }) => {
   )
 }
 
-export default FormRowSelect
+export default FormRowRegionSelect
