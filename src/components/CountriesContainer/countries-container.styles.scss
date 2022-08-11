@@ -1,20 +1,19 @@
-$mobileWidth: 600px;
-
+@import '../../utils/variables';
 
 .countries__container {
   margin: 50px 0;
 
   display: grid;
-  grid-template-columns: repeat(auto-fill, var(--cardWidth));
+  grid-template-columns: repeat(auto-fill, $cardWidth);
   justify-content: space-between;
   grid-gap: 65px;
-  
+
   @media screen and (max-width: $mobileWidth) {
     margin: 35px 0;
     justify-content: center;
   }
 
-  &__loading{
+  &__loading {
     display: flex;
     justify-content: center;
   }
@@ -24,14 +23,14 @@ $mobileWidth: 600px;
   display: flex;
   flex-direction: column;
 
-  color: var(--the-darkest-blue);
-  background-color: var(--white);
+  color: $the-darkest-blue;
+  background-color: $white;
 
-  width: var(--cardWidth);
+  width: $cardWidth;
 
-  border-radius: var(--border-radius);
+  border-radius: $border-radius;
 
-  box-shadow: var(--shadow-2);
+  box-shadow: $shadow-2;
   &__flag {
     width: 100%;
 
@@ -41,7 +40,7 @@ $mobileWidth: 600px;
       object-fit: cover;
       height: 165px;
 
-      border-radius: var(--border-radius) var(--border-radius) 0 0;
+      border-radius: $border-radius $border-radius 0 0;
     }
   }
 
@@ -52,9 +51,9 @@ $mobileWidth: 600px;
       font-size: 1.25rem;
       margin-bottom: 10px;
     }
-    p{
+    p {
       margin-bottom: 5px;
-      b{
+      b {
         font-weight: 600;
       }
     }

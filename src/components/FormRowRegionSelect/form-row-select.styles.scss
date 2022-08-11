@@ -1,10 +1,10 @@
-$mobileWidth: 600px;
+@import '../../utils/variables';
 
 .form-row {
   position: relative;
   &__select {
     font-size: 0.9rem;
-    color: var(--the-darkest-blue);
+    color: $the-darkest-blue;
 
     min-width: 210px;
     height: 60px;
@@ -12,10 +12,10 @@ $mobileWidth: 600px;
     padding: 0 14px 0 25px;
 
     border: none;
-    border-radius: var(--border-radius);
-    background-color: var(--white);
+    border-radius: $border-radius;
+    background-color: $white;
 
-    box-shadow: var(--shadow-1);
+    box-shadow: $shadow-1;
 
     display: flex;
     justify-content: space-between;
@@ -26,17 +26,17 @@ $mobileWidth: 600px;
   &__options {
     position: absolute;
 
-    background-color: var(--white);
+    background-color: $white;
 
     border: none;
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow-1);
+    border-radius: $border-radius;
+    box-shadow: $shadow-1;
 
     top: 65px;
     padding: 10px 20px;
     width: 210px;
 
-    transition: var(--transition);
+    transition: $transition;
   }
 
   &__option {

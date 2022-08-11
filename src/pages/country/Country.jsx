@@ -1,8 +1,14 @@
 import React from 'react'
 
+// components
+import { Navbar } from '../../components'
+
 const Country = () => {
   return (
-    <div>Country</div>
+    <div className="country">
+      <Navbar />
+      <main></main>
+    </div>
   )
 }
 

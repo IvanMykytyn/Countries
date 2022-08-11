@@ -1,0 +1,20 @@
+@import '../../utils/variables';
+
+.country {
+  color: $the-darkest-blue;
+  position: relative;
+
+  main {
+    // padding top - height of navbar + 40px
+    padding: 135px 80px 120px;
+
+    background-color: $light-gray;
+
+    @media screen and (max-width: $mobileWidth) {
+      padding: 115px 25px 40px;
+    }
+    @media screen and (max-width: $tabletWidth) {
+      padding: 115px 45px 40px;
+    }
+  }
+}

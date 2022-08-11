@@ -1,5 +1,4 @@
-$mobileWidth: 600px;
-$tabletWidth: 900px;
+@import '../../utils/variables';
 
 .search {
   &__container {
@@ -25,11 +24,11 @@ $tabletWidth: 900px;
 
       margin-left: 30px;
 
-      color: var(--dark-gray);
+      color: $dark-gray;
     }
     input {
       font-size: 14px;
-      color: var(--the-darkest-blue);
+      color: $the-darkest-blue;
 
       height: 60px;
       min-width: 500px;
@@ -37,8 +36,8 @@ $tabletWidth: 900px;
       padding-left: 80px;
 
       border: none;
-      border-radius: var(--border-radius);
-      box-shadow: var(--shadow-1);
+      border-radius: $border-radius;
+      box-shadow: $shadow-1;
 
       @media screen and (max-width: $mobileWidth) {
         min-width: 100%;
@@ -49,7 +48,7 @@ $tabletWidth: 900px;
       }
       &::placeholder {
         font-family: inherit;
-        color: var(--dark-gray);
+        color: $dark-gray;
       }
       &:active,
       &:focus {
