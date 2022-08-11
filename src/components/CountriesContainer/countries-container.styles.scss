@@ -13,13 +13,9 @@
     justify-content: center;
   }
 
-  &__loading {
-    display: flex;
-    justify-content: center;
-  }
 }
 
-.country-card {
+.country-item {
   display: flex;
   flex-direction: column;
 
@@ -31,6 +27,9 @@
   border-radius: $border-radius;
 
   box-shadow: $shadow-2;
+
+  cursor: pointer;
+  
   &__flag {
     width: 100%;
 

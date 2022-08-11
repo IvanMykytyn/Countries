@@ -1,0 +1,63 @@
+@import '../../utils/variables';
+
+.country-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  column-gap: 60px;
+  margin-top: 80px;
+
+  &__flag {
+    padding: 2px;
+    padding-right: 60px;
+    display: flex;
+    justify-content: center;
+
+    img {
+      
+      width: 100%;
+      max-width: 750px;
+
+      min-height: 400px;
+      max-height: 80%;
+      
+      display: block;
+      object-fit: cover;
+
+      border-radius: 2px;
+
+      box-shadow: $shadow-1;
+    }
+  }
+
+  &__content {
+    margin: 40px 0 10px;
+    header {
+      font-size: 1.5rem;
+    }
+    footer {
+      display: flex;
+      // align-items: center;
+      gap: 15px;
+      p {
+        white-space:nowrap;
+        font-weight: 600;
+        b {
+          font-size: 1.05rem;
+        }
+      }
+      
+    }
+  }
+  &__borders{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  &__main-info {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    column-gap: 60px;
+
+    margin: 35px 0 70px;
+  }
+}

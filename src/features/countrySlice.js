@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 
 // thunk
-import { getRegionCountriesThunk } from './countryThunk'
+import { getRegionCountriesThunk, getCountryThunk } from './countryThunk'
 
 // utils
 import { handleSearch } from '../utils/search'
@@ -11,11 +11,17 @@ export const getRegionCountries = createAsyncThunk(
   getRegionCountriesThunk
 )
 
+export const getCountry = createAsyncThunk(
+  'country/getCountry',
+  getCountryThunk
+)
+
 const initialState = {
   isLoading: false,
   regionCountries: [],
   searchCountries: [],
   search: '',
+  currentCountry: '',
 }
 
 const countrySlice = createSlice({
@@ -43,6 +49,18 @@ const countrySlice = createSlice({
       state.regionCountries = payload
     },
     [getRegionCountries.rejected]: (state, { payload }) => {
+      state.isLoading = false
+
+      console.log('error MSG ' + payload)
+    },
+    [getCountry.pending]: (state) => {
+      state.isLoading = true
+    },
+    [getCountry.fulfilled]: (state, { payload }) => {
+      state.isLoading = false
+      state.currentCountry = payload
+    },
+    [getCountry.rejected]: (state, { payload }) => {
       state.isLoading = false
 
       console.log('error MSG ' + payload)

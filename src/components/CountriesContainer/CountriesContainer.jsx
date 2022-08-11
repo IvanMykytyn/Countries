@@ -11,7 +11,7 @@ const CountriesContainer = () => {
 
   if (isLoading) {
     return (
-      <div className='countries__container__loading'>
+      <div className='loading__container'>
         <Loading />
       </div>
     )

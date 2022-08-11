@@ -6,6 +6,11 @@
     transform: rotate3d(0deg);
   }
 }
+  
+.loading__container {
+  display: flex;
+  justify-content: center;
+}
 
 .spinner-box {
   width: 300px;

@@ -46,6 +46,64 @@ export const getRegionCountriesThunk = async (region, thunkAPI) => {
     return countries
   } catch (error) {
     console.log(error)
-    thunkAPI.rejectWithValue(error.response.data.msg)
+    thunkAPI.rejectWithValue(error.response.data.message)
   }
+}
+
+export const getCountryThunk = async (_, thunkAPI) => {
+  try {
+    // get country name from url
+    const urlName = window.location.pathname.split('/').pop()
+    const response = await customFetch.get(`/name/${urlName}?fullText=true`)
+
+    const countryData = response.data[0]
+
+    // get countries to get all borders
+    const countriesData = await customFetch.get('/all?fields=name,cioc')
+    const countries = countriesData.data.map((item) => ({
+      cioc: item.cioc,
+      name: item.name.common,
+    }))
+
+    const borders = getBorders(countryData.borders, countries)
+
+    // get needed data
+    const {
+      name,
+      capital,
+      flags,
+      languages,
+      population,
+      region,
+      tld,
+      subregion,
+      currencies,
+    } = countryData
+
+    return {
+      name: name.common,
+      officialName: name.official,
+      capital,
+      population,
+      region,
+      subregion,
+      flag: flags.svg,
+      languages: Object.values(languages),
+      domain: tld,
+      currencies: Object.values(currencies).map((item) => item.name),
+      borders,
+    }
+  } catch (error) {
+    console.log(error)
+    thunkAPI.rejectWithValue(error.response.data.message)
+  }
+}
+const getBorders = (borderCodes, countries) => {
+  const borders = countries
+    .filter((country) => {
+      return borderCodes.includes(country.cioc)
+    })
+    .map((item) => item.name)
+
+  return borders
 }
