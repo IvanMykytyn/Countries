@@ -4,8 +4,11 @@ import { useDispatch, useSelector } from 'react-redux'
 import './form-row-select.styles.scss'
 
 // actions
-import { setRegion } from '../../features/countrySlice'
-import { getCountries } from '../../features/countrySlice'
+// import { setRegion } from '../../features/countrySlice'
+import {
+  getRegionCountries,
+  setSearchCountries,
+} from '../../features/countrySlice'
 
 // icons
 import { RiArrowDropDownLine } from 'react-icons/ri'
@@ -23,9 +26,12 @@ const FormRowRegionSelect = ({ list }) => {
   }
 
   useEffect(() => {
-    dispatch(setRegion(filter))
-    dispatch(getCountries())
-  }, [search, filter])
+    dispatch(getRegionCountries(filter))
+  }, [filter])
+
+  useEffect(() => {
+    dispatch(setSearchCountries())
+  }, [search])
 
   return (
     <div className="form-row">

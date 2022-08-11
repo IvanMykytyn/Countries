@@ -1,46 +1,47 @@
-.form-row{
-    position: relative;
-    &__select{
-        font-size: 0.9rem;
-        color: var(--the-darkest-blue);
+$mobileWidth: 600px;
 
-        min-width: 210px;
-        height: 60px;
+.form-row {
+  position: relative;
+  &__select {
+    font-size: 0.9rem;
+    color: var(--the-darkest-blue);
 
-        padding: 0 14px 0 25px;
- 
-        border: none;
-        border-radius: var(--border-radius);
-        background-color: var(--white);
-        
-        box-shadow: var(--shadow-1);
-        
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+    min-width: 210px;
+    height: 60px;
 
-        cursor: pointer;
-        
-    }
-    &__options{
-        position: absolute;
+    padding: 0 14px 0 25px;
 
-        background-color: var(--white);
+    border: none;
+    border-radius: var(--border-radius);
+    background-color: var(--white);
 
-        border: none;
-        border-radius: var(--border-radius);
-        box-shadow: var(--shadow-1);
+    box-shadow: var(--shadow-1);
 
-        top: 65px;
-        padding: 10px 20px;
-        width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-        transition: var(--transition);
-    }
+    cursor: pointer;
+  }
+  &__options {
+    position: absolute;
 
-    &__option{
-        margin: 10px 0;
-        text-transform: capitalize;
-        cursor: pointer;
-    }
+    background-color: var(--white);
+
+    border: none;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-1);
+
+    top: 65px;
+    padding: 10px 20px;
+    width: 210px;
+
+    transition: var(--transition);
+  }
+
+  &__option {
+    margin: 10px 0;
+    text-transform: capitalize;
+    cursor: pointer;
+  }
 }

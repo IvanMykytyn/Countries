@@ -1,3 +1,6 @@
+$mobileWidth: 600px;
+$tabletWidth: 900px;
+
 .countries {
   color: var(--the-darkest-blue);
   position: relative;
@@ -16,9 +19,19 @@
 
     box-shadow: var(--shadow-1);
 
+    @media screen and (max-width: $mobileWidth) {
+      padding: 25px;
+    }
+    @media screen and (max-width: $tabletWidth) {
+      padding: 10px 45px;
+    }
     .header__text {
       font-size: 1.6rem;
       font-weight: 800;
+
+      @media screen and (max-width: $mobileWidth) {
+        font-size: 1rem;
+      }
     }
   }
   .switch-theme {
@@ -32,6 +45,11 @@
     &__text {
       font-size: 1.05rem;
       font-weight: 600;
+
+      @media screen and (max-width: $mobileWidth) {
+        font-size: 0.8rem;
+        font-weight: 300;
+      }
     }
   }
 
@@ -43,5 +61,12 @@
     min-height: 100vh;
 
     background-color: var(--light-gray);
+
+    @media screen and (max-width: $mobileWidth) {
+      padding: 115px 25px 40px;
+    }
+    @media screen and (max-width: $tabletWidth) {
+      padding: 115px 45px 40px;
+    }
   }
 }

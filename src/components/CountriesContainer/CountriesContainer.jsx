@@ -4,17 +4,29 @@ import { useSelector } from 'react-redux'
 
 // components
 import Country from './Country'
+import Loading from '../Loading/Loading'
 
 const CountriesContainer = () => {
-  const { isLoading, countries } = useSelector((store) => store.country)
+  const { isLoading, searchCountries } = useSelector((store) => store.country)
 
   if (isLoading) {
-    return <h1>Loading...</h1>
+    return (
+      <div className='countries__container__loading'>
+        <Loading />
+      </div>
+    )
   }
-  
+  if (searchCountries.length === 0) {
+    return (
+      <div className='countries__container__empty'>
+        <h1>No Countries</h1>
+      </div>
+    )
+  }
+
   return (
     <div className="countries__container">
-      {countries.map((country) => {
+      {searchCountries.map((country) => {
         return <Country key={country._id} {...country} />
       })}
     </div>

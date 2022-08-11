@@ -1,7 +1,17 @@
+$mobileWidth: 600px;
+$tabletWidth: 900px;
+
 .search {
-  &__container{
+  &__container {
     display: flex;
     justify-content: space-between;
+
+    @media screen and (max-width: $mobileWidth) {
+      width: 100%;
+      justify-content: none;
+      flex-direction: column;
+      gap: 30px;
+    }
   }
 
   &__input {
@@ -20,25 +30,31 @@
     input {
       font-size: 14px;
       color: var(--the-darkest-blue);
-      
+
       height: 60px;
       min-width: 500px;
-      
+
       padding-left: 80px;
 
       border: none;
       border-radius: var(--border-radius);
       box-shadow: var(--shadow-1);
 
+      @media screen and (max-width: $mobileWidth) {
+        min-width: 100%;
+      }
+      @media screen and (max-width: $tabletWidth) {
+        min-width: 300px;
+        max-width: 400px;
+      }
       &::placeholder {
         font-family: inherit;
         color: var(--dark-gray);
       }
-      &:active,&:focus{
+      &:active,
+      &:focus {
         outline: none;
       }
     }
-
-
   }
 }

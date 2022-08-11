@@ -1,10 +1,23 @@
+$mobileWidth: 600px;
+
+
 .countries__container {
   margin: 50px 0;
 
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, var(--cardWidth));
   justify-content: space-between;
-  gap: 65px;
-  flex-wrap: wrap;
+  grid-gap: 65px;
+  
+  @media screen and (max-width: $mobileWidth) {
+    margin: 35px 0;
+    justify-content: center;
+  }
+
+  &__loading{
+    display: flex;
+    justify-content: center;
+  }
 }
 
 .country-card {
@@ -14,7 +27,7 @@
   color: var(--the-darkest-blue);
   background-color: var(--white);
 
-  width: 285px;
+  width: var(--cardWidth);
 
   border-radius: var(--border-radius);
 

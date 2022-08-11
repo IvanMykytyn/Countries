@@ -1,17 +1,20 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 
 // thunk
-import { getCountriesThunk } from './countryThunk'
+import { getRegionCountriesThunk } from './countryThunk'
 
-export const getCountries = createAsyncThunk(
-  'country/getCountries',
-  getCountriesThunk
+// utils
+import { handleSearch } from '../utils/search'
+
+export const getRegionCountries = createAsyncThunk(
+  'country/getRegionCountries',
+  getRegionCountriesThunk
 )
 
 const initialState = {
   isLoading: false,
-  countries: [],
-  currentRegion: 'All',
+  regionCountries: [],
+  searchCountries: [],
   search: '',
 }
 
@@ -19,28 +22,34 @@ const countrySlice = createSlice({
   name: 'country',
   initialState,
   reducers: {
-    setRegion: (state, {payload}) => {
-      state.currentRegion = payload
-    },
-    setSearch: (state, {payload}) => {
+    setSearch: (state, { payload }) => {
       state.search = payload
-    }
+    },
+    setSearchCountries: (state, { payload }) => {
+      if (payload) {
+        state.searchCountries = payload
+      } else {
+        const { search, regionCountries } = state
+        state.searchCountries = handleSearch(regionCountries, search)
+      }
+    },
   },
   extraReducers: {
-    [getCountries.pending]: (state) => {
+    [getRegionCountries.pending]: (state) => {
       state.isLoading = true
     },
-    [getCountries.fulfilled]: (state, { payload }) => {
+    [getRegionCountries.fulfilled]: (state, { payload }) => {
       state.isLoading = false
-      state.countries = payload
+      state.regionCountries = payload
     },
-    [getCountries.rejected]: (state, { payload }) => {
+    [getRegionCountries.rejected]: (state, { payload }) => {
       state.isLoading = false
+
       console.log('error MSG ' + payload)
     },
   },
 })
-
-export const {setRegion, setSearch} = countrySlice.actions
+// setRegion,
+export const { setSearch, setSearchCountries } = countrySlice.actions
 
 export default countrySlice.reducer
