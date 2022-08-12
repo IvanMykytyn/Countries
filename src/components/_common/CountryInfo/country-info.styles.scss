@@ -8,3 +8,13 @@
         font-size: 1.05rem;
     }
 }
+.dark {
+    .country-info__p{
+        font-weight: 300;
+        margin-bottom: 10px;
+        b{
+            font-size: 1.05rem;
+            font-weight: 600;
+        }
+    }
+}

@@ -22,6 +22,7 @@ const initialState = {
   searchCountries: [],
   search: '',
   currentCountry: '',
+  darkTheme: false,
 }
 
 const countrySlice = createSlice({
@@ -38,6 +39,9 @@ const countrySlice = createSlice({
         const { search, regionCountries } = state
         state.searchCountries = handleSearch(regionCountries, search)
       }
+    },
+    changeTheme: (state) => {
+      state.darkTheme = !state.darkTheme
     },
   },
   extraReducers: {
@@ -68,6 +72,6 @@ const countrySlice = createSlice({
   },
 })
 // setRegion,
-export const { setSearch, setSearchCountries } = countrySlice.actions
+export const { setSearch, setSearchCountries, changeTheme } = countrySlice.actions
 
 export default countrySlice.reducer

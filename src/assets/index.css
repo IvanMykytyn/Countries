@@ -16,3 +16,7 @@ html {
 body {
   font-family: 'Nunito Sans', sans-serif;
 }
+
+.dark img {
+  filter: brightness(0.85) contrast(1.2);
+}

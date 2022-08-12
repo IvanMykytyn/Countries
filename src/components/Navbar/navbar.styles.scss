@@ -35,6 +35,8 @@ nav {
 
     background: inherit;
     border: none;
+    
+    cursor: pointer;
 
     &__text {
       font-size: 1.05rem;
@@ -45,5 +47,20 @@ nav {
         font-weight: 300;
       }
     }
+  }
+}
+
+
+.dark {
+  .switch-theme {
+    color: $white;
+    &__text {
+      font-size: 1.05rem;
+      font-weight: 300;
+    }
+  }
+  nav {
+    background-color: $dark-blue;
+    box-shadow: $shadow-1-dark;
   }
 }

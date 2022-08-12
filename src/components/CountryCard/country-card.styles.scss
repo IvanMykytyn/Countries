@@ -13,19 +13,18 @@
     justify-content: center;
 
     img {
-      
       width: 100%;
       max-width: 750px;
 
-      min-height: 400px;
+      min-height: 300px;
       max-height: 80%;
-      
+
       display: block;
       object-fit: cover;
 
       border-radius: 2px;
 
-      box-shadow: $shadow-1;
+      box-shadow: $shadow-3;
     }
   }
 
@@ -36,19 +35,17 @@
     }
     footer {
       display: flex;
-      // align-items: center;
       gap: 15px;
       p {
-        white-space:nowrap;
+        white-space: nowrap;
         font-weight: 600;
         b {
           font-size: 1.05rem;
         }
       }
-      
     }
   }
-  &__borders{
+  &__borders {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
@@ -59,5 +56,15 @@
     column-gap: 60px;
 
     margin: 35px 0 70px;
+  }
+}
+
+.dark {
+  .country-card {
+    &__flag {
+      img {
+        box-shadow: $shadow-3-dark;
+      }
+    }
   }
 }

@@ -7,6 +7,7 @@
   main {
     // padding top - height of navbar(85px) + 85px
     padding: 170px 80px 120px;
+    min-height: 100vh;
 
     // @media screen and (max-width: $mobileWidth) {
     //   padding: 115px 25px 40px;
@@ -17,22 +18,42 @@
 
     .go-back {
       background-color: $white;
-      
+
       display: inline-block;
-      
+
       box-shadow: $shadow-2;
       border-radius: $border-radius;
-      
+
       &__link {
         display: flex;
         gap: 10px;
 
         padding: 10px 40px;
-        
+
         color: $the-darkest-blue;
         font-size: 1.1rem;
         text-decoration: none;
+      }
+    }
+  }
+}
 
+// dark theme
+
+.dark {
+  .country {
+    color: $light-gray;
+    position: relative;
+
+    main {
+      background-color: $darker-blue;
+      .go-back {
+        background-color: $dark-blue;
+        box-shadow: $shadow-2-dark;
+
+        &__link {
+          color: $white;
+        }
       }
     }
   }

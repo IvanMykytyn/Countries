@@ -37,6 +37,7 @@
 
       border: none;
       border-radius: $border-radius;
+
       box-shadow: $shadow-1;
 
       @media screen and (max-width: $mobileWidth) {
@@ -53,6 +54,27 @@
       &:active,
       &:focus {
         outline: none;
+      }
+    }
+  }
+}
+
+.dark {
+  .search {
+    &__input {
+      input {
+        color: $white;
+        background-color: $dark-blue;
+        box-shadow: $shadow-1-dark;
+
+
+        &::placeholder {
+          color: $lighter-gray;
+        }
+      }
+
+      &__icon {
+        color: $lighter-gray;
       }
     }
   }

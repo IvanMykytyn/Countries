@@ -45,3 +45,14 @@
     cursor: pointer;
   }
 }
+
+.dark {
+  .form-row {
+    &__select,
+    &__options {
+      color: $white;
+      background-color: $dark-blue;
+      box-shadow: $shadow-1-dark;
+    }
+  }
+}

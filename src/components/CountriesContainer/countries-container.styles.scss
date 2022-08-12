@@ -12,7 +12,6 @@
     margin: 35px 0;
     justify-content: center;
   }
-
 }
 
 .country-item {
@@ -29,7 +28,7 @@
   box-shadow: $shadow-2;
 
   cursor: pointer;
-  
+
   &__flag {
     width: 100%;
 
@@ -56,5 +55,13 @@
         font-weight: 600;
       }
     }
+  }
+}
+
+.dark {
+  .country-item {
+    color: $white;
+    background-color: $dark-blue;
+    box-shadow: $shadow-2-dark;
   }
 }
