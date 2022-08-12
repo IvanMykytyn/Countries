@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom'
 
 const Country = () => {
   return (
-    <div className="country">
+    <div className="country theme">
       <Navbar />
       <main>
         <div className="go-back">

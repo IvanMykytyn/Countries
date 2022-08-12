@@ -19,14 +19,15 @@
       background-color: $white;
       
       display: inline-block;
-      padding: 10px 40px;
-
+      
       box-shadow: $shadow-2;
       border-radius: $border-radius;
-
+      
       &__link {
         display: flex;
         gap: 10px;
+
+        padding: 10px 40px;
         
         color: $the-darkest-blue;
         font-size: 1.1rem;

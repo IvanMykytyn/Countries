@@ -1,12 +1,12 @@
 
 // colors
-$dark-blue: hsl(209, 23%, 22%);
-$darker-blue: hsl(207, 26%, 17%);
-$the-darkest-blue: hsl(200, 15%, 8%);
+$dark-blue: hsl(209, 23%, 22%); // Dark Mode Elements
+$darker-blue: hsl(207, 26%, 17%); // Dark Mode Background
+$the-darkest-blue: hsl(200, 15%, 8%); // Light Mode Text
 
-$dark-gray: hsl(0, 0%, 52%);
-$light-gray: hsl(0, 0%, 98%);
-$white: hsl(0, 0%, 100%);
+$dark-gray: hsl(0, 0%, 52%); // Light Mode Input
+$light-gray: hsl(0, 0%, 98%); // Light Mode Background
+$white: hsl(0, 0%, 100%); // Dark Mode Text & Light Mode Elements
 
 // fonts
 $main-font: 'Nunito Sans', sans-serif;

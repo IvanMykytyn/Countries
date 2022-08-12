@@ -4,7 +4,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { getRegionCountriesThunk, getCountryThunk } from './countryThunk'
 
 // utils
-import { handleSearch } from '../utils/search'
+import { handleSearch } from '../../utils/search'
 
 export const getRegionCountries = createAsyncThunk(
   'country/getRegionCountries',

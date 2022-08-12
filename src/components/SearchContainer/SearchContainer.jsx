@@ -12,7 +12,7 @@ import { FormRowRegionSelect } from '../'
 import regions from '../../utils/regions'
 
 // actions
-import { setSearch } from '../../features/countrySlice'
+import { setSearch } from '../../features/country/countrySlice'
 
 const SearchContainer = () => {
   const dispatch = useDispatch()

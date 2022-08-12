@@ -8,7 +8,7 @@ import './form-row-select.styles.scss'
 import {
   getRegionCountries,
   setSearchCountries,
-} from '../../features/countrySlice'
+} from '../../features/country/countrySlice'
 
 // icons
 import { RiArrowDropDownLine } from 'react-icons/ri'

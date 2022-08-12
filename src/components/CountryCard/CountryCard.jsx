@@ -8,14 +8,12 @@ import { BorderCountry, CountryInfo, Loading } from '../'
 import { useEffect } from 'react'
 
 // actions
-import {getCountry } from '../../features/countrySlice'
+import { getCountry } from '../../features/country/countrySlice'
 
 const CountryCard = () => {
   const dispatch = useDispatch()
 
-  const { isLoading, currentCountry } = useSelector(
-    (store) => store.country
-  )
+  const { isLoading, currentCountry } = useSelector((store) => store.country)
 
   const {
     name,
@@ -67,7 +65,7 @@ const CountryCard = () => {
         </div>
         <footer>
           <p>
-            <b>Border Countries:</b>
+            <b>{borders?.length !== 0 ? 'Border Countries:' : 'The country has no border countries.'}</b>
           </p>
           <div className="country-card__borders">
             {borders &&

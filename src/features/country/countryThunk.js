@@ -4,11 +4,11 @@ import { v4 as uuidv4 } from 'uuid'
 import { setSearchCountries } from './countrySlice'
 
 // utils
-import { handleSearch } from '../utils/search'
+import { handleSearch } from '../../utils/search'
 
 // axios
-import customFetch from '../utils/axios'
-import { fetchCountryFilter } from '../utils/axios'
+import customFetch from '../../utils/axios'
+import { fetchCountryFilter } from '../../utils/axios'
 
 export const getRegionCountriesThunk = async (region, thunkAPI) => {
   try {
@@ -46,7 +46,7 @@ export const getRegionCountriesThunk = async (region, thunkAPI) => {
     return countries
   } catch (error) {
     console.log(error)
-    thunkAPI.rejectWithValue(error.response.data.message)
+    thunkAPI.rejectWithValue(error.response.data)
   }
 }
 
@@ -59,13 +59,17 @@ export const getCountryThunk = async (_, thunkAPI) => {
     const countryData = response.data[0]
 
     // get countries to get all borders
-    const countriesData = await customFetch.get('/all?fields=name,cioc')
+    const countriesData = await customFetch.get('/all?fields=name,cca3')
+
     const countries = countriesData.data.map((item) => ({
-      cioc: item.cioc,
+      code: item.cca3,
       name: item.name.common,
     }))
 
-    const borders = getBorders(countryData.borders, countries)
+    let borders = []
+    if (countryData.borders) {
+      borders = getBorders(countryData.borders, countries)
+    }
 
     // get needed data
     const {
@@ -88,20 +92,21 @@ export const getCountryThunk = async (_, thunkAPI) => {
       region,
       subregion,
       flag: flags.svg,
-      languages: Object.values(languages),
+      languages: languages && Object.values(languages),
       domain: tld,
-      currencies: Object.values(currencies).map((item) => item.name),
+      currencies:
+        currencies && Object.values(currencies).map((item) => item.name),
       borders,
     }
   } catch (error) {
     console.log(error)
-    thunkAPI.rejectWithValue(error.response.data.message)
+    thunkAPI.rejectWithValue(error.response.data)
   }
 }
 const getBorders = (borderCodes, countries) => {
   const borders = countries
     .filter((country) => {
-      return borderCodes.includes(country.cioc)
+      return borderCodes.includes(country.code)
     })
     .map((item) => item.name)
 
