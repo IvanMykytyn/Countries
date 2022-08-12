@@ -5,6 +5,10 @@ import { getRegionCountriesThunk, getCountryThunk } from './countryThunk'
 
 // utils
 import { handleSearch } from '../../utils/search'
+import {
+  getThemeFromLocalStorage,
+  setThemeToLocalStorage,
+} from '../../utils/localStorage'
 
 export const getRegionCountries = createAsyncThunk(
   'country/getRegionCountries',
@@ -22,7 +26,11 @@ const initialState = {
   searchCountries: [],
   search: '',
   currentCountry: '',
-  darkTheme: false,
+  darkTheme: getThemeFromLocalStorage(),
+}
+
+if(initialState.darkTheme){
+  document.getElementById('root').classList.toggle('dark')
 }
 
 const countrySlice = createSlice({
@@ -42,6 +50,7 @@ const countrySlice = createSlice({
     },
     changeTheme: (state) => {
       state.darkTheme = !state.darkTheme
+      setThemeToLocalStorage(state.darkTheme)
     },
   },
   extraReducers: {
@@ -72,6 +81,7 @@ const countrySlice = createSlice({
   },
 })
 // setRegion,
-export const { setSearch, setSearchCountries, changeTheme } = countrySlice.actions
+export const { setSearch, setSearchCountries, changeTheme } =
+  countrySlice.actions
 
 export default countrySlice.reducer

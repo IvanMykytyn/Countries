@@ -1,3 +1,13 @@
+$whiteOrbit: #a6a6a6bc;
+$blueOrbit: #44bffdde;
+$greenOrbit: #47f790df;
+$redOrbit: #f6ab5aee;
+
+$whiteOrbitDark: #ffffff;
+$blueOrbitDark: #91daffa5;
+$greenOrbitDark: #91ffbfa5;
+$redOrbitDark: #ffca91a5;
+
 @keyframes spin3D {
   from {
     transform: rotate3d(0.5, 0.5, 0.5, 360deg);
@@ -6,7 +16,6 @@
     transform: rotate3d(0deg);
   }
 }
-  
 .loading__container {
   display: flex;
   justify-content: center;
@@ -32,29 +41,43 @@
 .blue-orbit {
   width: 165px;
   height: 165px;
-  border: 1px solid #91daffa5;
+  border: 1px solid $blueOrbit;
   animation: spin3D 3s linear 0.2s infinite;
 }
 
 .green-orbit {
   width: 120px;
   height: 120px;
-  border: 1px solid #91ffbfa5;
+  border: 1px solid $greenOrbit;
   animation: spin3D 2s linear 0s infinite;
 }
 
 .red-orbit {
   width: 90px;
   height: 90px;
-  border: 1px solid #ffca91a5;
+  border: 1px solid $redOrbit;
   animation: spin3D 1s linear 0s infinite;
 }
 
 .white-orbit {
   width: 60px;
   height: 60px;
-  border: 2px solid #ffffff;
+  border: 2px solid $whiteOrbit;
   animation: spin3D 10s linear 0s infinite;
+}
+.dark {
+  .blue-orbit {
+    border: 1px solid $blueOrbitDark;
+  }
+  .green-orbit {
+    border: 1px solid $greenOrbitDark;
+  }
+  .red-orbit {
+    border: 1px solid $redOrbitDark;
+  }
+  .white-orbit {
+    border: 2px solid $whiteOrbitDark;
+  }
 }
 
 .w1 {

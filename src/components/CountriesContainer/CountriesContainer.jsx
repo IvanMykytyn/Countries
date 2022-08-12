@@ -19,7 +19,7 @@ const CountriesContainer = () => {
   if (searchCountries.length === 0) {
     return (
       <div className='countries__container__empty'>
-        <h1>No Countries</h1>
+        <h1>No Сountries were found for this query.</h1>
       </div>
     )
   }
