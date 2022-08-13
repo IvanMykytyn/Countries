@@ -4,6 +4,10 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 // pages
 import { Countries, Country } from './pages'
 
+// toastify setup
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+
 const App = () => {
   return (
     <BrowserRouter>
@@ -12,6 +16,7 @@ const App = () => {
         <Route path="/country/:name" element={<Country />} />
         <Route path="*" element={<h2>Not Found</h2>} />
       </Routes>
+      <ToastContainer />
     </BrowserRouter>
   )
 }

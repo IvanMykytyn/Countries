@@ -1,20 +1,19 @@
 @import '../../../utils/variables';
 
-
-.country-info__p{
-    font-weight: 600;
-    margin-bottom: 10px;
-    b{
-        font-size: 1.05rem;
-    }
+.country-info__p {
+  font-weight: 600;
+  margin-bottom: 10px;
+  b {
+    font-size: 1.05rem;
+  }
 }
 .dark {
-    .country-info__p{
-        font-weight: 300;
-        margin-bottom: 10px;
-        b{
-            font-size: 1.05rem;
-            font-weight: 600;
-        }
+  .country-info__p {
+    font-weight: 300;
+    margin-bottom: 10px;
+    b {
+      font-size: 1.05rem;
+      font-weight: 600;
     }
+  }
 }

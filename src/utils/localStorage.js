@@ -3,10 +3,10 @@ export const setThemeToLocalStorage = (theme) => {
 }
 export const getThemeFromLocalStorage = () => {
   const theme = localStorage.getItem('theme')
-  if(!theme){
+  if (!theme) {
     return false
   }
-  
+
   const parsedTheme = JSON.parse(theme)
   return parsedTheme
 }

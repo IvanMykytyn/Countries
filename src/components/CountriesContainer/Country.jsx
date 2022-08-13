@@ -1,5 +1,5 @@
 import React from 'react'
-import {useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const Country = ({ flag, name, population, region, capital }) => {
   const navigate = useNavigate()

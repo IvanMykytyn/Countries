@@ -35,8 +35,12 @@ nav {
 
     background: inherit;
     border: none;
-    
+
     cursor: pointer;
+
+    &:hover {
+      opacity: 0.5;
+    }
 
     &__text {
       font-size: 1.05rem;
@@ -49,7 +53,6 @@ nav {
     }
   }
 }
-
 
 .dark {
   .switch-theme {

@@ -1,5 +1,4 @@
 import './country-card.styles.scss'
-
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -18,9 +17,9 @@ import { getCountry } from '../../features/country/countrySlice'
 
 const CountryCard = () => {
   const dispatch = useDispatch()
-
   const { isLoading, currentCountry } = useSelector((store) => store.country)
 
+  // get data from state
   const {
     name,
     officialName,
@@ -35,10 +34,12 @@ const CountryCard = () => {
     borders,
   } = currentCountry
 
+  // get data
   useEffect(() => {
     dispatch(getCountry())
   }, [])
 
+  // is Loading
   if (isLoading) {
     return (
       <div className="loading__container">

@@ -12,14 +12,16 @@ import { fetchCountryFilter } from '../../utils/axios'
 
 export const getRegionCountriesThunk = async (region, thunkAPI) => {
   try {
-    // get name, flags, population, region, capital of each country
+    // set up link
     let link = '/all'
     const currentRegion = region
-    // change link if not all regions
+
+    // change link if filter isn't All regions
     if (currentRegion !== 'All') {
       link = `/region/${currentRegion}`
     }
 
+    // get name, flags, population, region, capital of each country
     const response = await customFetch.get(`${link}${fetchCountryFilter}`)
     const allCountries = response.data
 
@@ -36,17 +38,16 @@ export const getRegionCountriesThunk = async (region, thunkAPI) => {
         capital,
       }
     })
-    // using search
+
+    // include data from search to filter countries
     const regionAndSearchCountries = handleSearch(
       countries,
       thunkAPI.getState().country.search
     )
     thunkAPI.dispatch(setSearchCountries(regionAndSearchCountries))
-
     return countries
   } catch (error) {
-    console.log(error)
-    thunkAPI.rejectWithValue(error.response.data)
+    thunkAPI.rejectWithValue(error.response.data.message)
   }
 }
 
@@ -56,9 +57,10 @@ export const getCountryThunk = async (_, thunkAPI) => {
     const urlName = window.location.pathname.split('/').pop()
     const response = await customFetch.get(`/name/${urlName}?fullText=true`)
 
+    // get country data
     const countryData = response.data[0]
 
-    // get countries to get all borders
+    // get countries(name and cca3) to get all borders
     const countriesData = await customFetch.get('/all?fields=name,cca3')
 
     const countries = countriesData.data.map((item) => ({
@@ -99,10 +101,10 @@ export const getCountryThunk = async (_, thunkAPI) => {
       borders,
     }
   } catch (error) {
-    console.log(error)
-    thunkAPI.rejectWithValue(error.response.data)
+    thunkAPI.rejectWithValue(error.response.data.message)
   }
 }
+
 const getBorders = (borderCodes, countries) => {
   const borders = countries
     .filter((country) => {

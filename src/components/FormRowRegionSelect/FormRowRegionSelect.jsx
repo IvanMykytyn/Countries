@@ -1,10 +1,8 @@
+import './form-row-select.styles.scss'
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import './form-row-select.styles.scss'
-
 // actions
-// import { setRegion } from '../../features/countrySlice'
 import {
   getRegionCountries,
   setSearchCountries,
@@ -15,16 +13,21 @@ import { RiArrowDropDownLine } from 'react-icons/ri'
 import { useEffect } from 'react'
 
 const FormRowRegionSelect = ({ list }) => {
+  // global state
   const dispatch = useDispatch()
   const { search } = useSelector((store) => store.country)
-  const [isOpenDropDown, SetIsOpenDropDown] = useState(false)
+
+  // local state
+  const [isOpenDropDown, setIsOpenDropDown] = useState(false)
   const [filter, setFilter] = useState('All')
 
+  // Handle Filter
   const handleFilter = (region) => {
     setFilter(region)
-    SetIsOpenDropDown((prev) => !prev)
+    setIsOpenDropDown((prev) => !prev)
   }
 
+  // on filter change get countries
   useEffect(() => {
     dispatch(getRegionCountries(filter))
   }, [filter])
@@ -37,7 +40,7 @@ const FormRowRegionSelect = ({ list }) => {
     <div className="form-row">
       <button
         className="form-row__select"
-        onClick={() => SetIsOpenDropDown((prev) => !prev)}
+        onClick={() => setIsOpenDropDown((prev) => !prev)}
       >
         <p>
           {isOpenDropDown || filter === 'All' ? 'Filter by Region' : filter}

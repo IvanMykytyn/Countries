@@ -20,3 +20,8 @@ body {
 .dark img {
   filter: brightness(0.85) contrast(1.2);
 }
+
+main,
+nav {
+  transition: 0.15s ease-in-out all;
+}

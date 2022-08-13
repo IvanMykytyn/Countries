@@ -11,14 +11,14 @@ const CountriesContainer = () => {
 
   if (isLoading) {
     return (
-      <div className='loading__container'>
+      <div className="loading__container">
         <Loading />
       </div>
     )
   }
   if (searchCountries.length === 0) {
     return (
-      <div className='countries__container__empty'>
+      <div className="countries__container__empty">
         <h1>No Сountries were found for this query.</h1>
       </div>
     )

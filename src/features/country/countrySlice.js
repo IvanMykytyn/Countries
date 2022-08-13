@@ -5,11 +5,17 @@ import { getRegionCountriesThunk, getCountryThunk } from './countryThunk'
 
 // utils
 import { handleSearch } from '../../utils/search'
+
+// utils
 import {
   getThemeFromLocalStorage,
   setThemeToLocalStorage,
 } from '../../utils/localStorage'
 
+// toastify
+import { toast } from 'react-toastify'
+
+// thunk
 export const getRegionCountries = createAsyncThunk(
   'country/getRegionCountries',
   getRegionCountriesThunk
@@ -20,6 +26,7 @@ export const getCountry = createAsyncThunk(
   getCountryThunk
 )
 
+// Initial State
 const initialState = {
   isLoading: false,
   regionCountries: [],
@@ -33,6 +40,7 @@ if(initialState.darkTheme){
   document.getElementById('root').classList.toggle('dark')
 }
 
+// country slice
 const countrySlice = createSlice({
   name: 'country',
   initialState,
@@ -63,8 +71,7 @@ const countrySlice = createSlice({
     },
     [getRegionCountries.rejected]: (state, { payload }) => {
       state.isLoading = false
-
-      console.log('error MSG ' + payload)
+      toast.error(payload)
     },
     [getCountry.pending]: (state) => {
       state.isLoading = true
@@ -72,11 +79,11 @@ const countrySlice = createSlice({
     [getCountry.fulfilled]: (state, { payload }) => {
       state.isLoading = false
       state.currentCountry = payload
+
     },
     [getCountry.rejected]: (state, { payload }) => {
       state.isLoading = false
-
-      console.log('error MSG ' + payload)
+      toast.error(payload)
     },
   },
 })

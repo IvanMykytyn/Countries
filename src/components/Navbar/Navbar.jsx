@@ -8,7 +8,6 @@ import { HiOutlineMoon, HiMoon } from 'react-icons/hi'
 // actions
 import { changeTheme } from '../../features/country/countrySlice'
 
-
 const Navbar = () => {
   const dispatch = useDispatch()
   const { darkTheme } = useSelector((store) => store.country)
