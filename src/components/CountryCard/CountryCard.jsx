@@ -12,11 +12,8 @@ import { BsArrowLeft } from 'react-icons/bs'
 // react router dom
 import { Link } from 'react-router-dom'
 
-// actions
-import { getCountry } from '../../features/country/countrySlice'
 
 const CountryCard = () => {
-  const dispatch = useDispatch()
   const { isLoading, currentCountry } = useSelector((store) => store.country)
 
   // get data from state
@@ -33,11 +30,6 @@ const CountryCard = () => {
     currencies,
     borders,
   } = currentCountry
-
-  // get data
-  useEffect(() => {
-    dispatch(getCountry())
-  }, [])
 
   // is Loading
   if (isLoading) {

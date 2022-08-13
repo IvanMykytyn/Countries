@@ -51,11 +51,10 @@ export const getRegionCountriesThunk = async (region, thunkAPI) => {
   }
 }
 
-export const getCountryThunk = async (_, thunkAPI) => {
+export const getCountryThunk = async (countryName, thunkAPI) => {
   try {
     // get country name from url
-    const urlName = window.location.pathname.split('/').pop()
-    const response = await customFetch.get(`/name/${urlName}?fullText=true`)
+    const response = await customFetch.get(`/name/${countryName}?fullText=true`)
 
     // get country data
     const countryData = response.data[0]
