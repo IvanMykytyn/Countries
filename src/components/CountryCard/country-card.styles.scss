@@ -12,6 +12,12 @@
     display: flex;
     justify-content: center;
 
+    @media screen and (max-width: $mobileWidth) {
+      padding-right: 0;
+    }
+    @media screen and (max-width: $tabletWidth) {
+      padding-right: 0;
+    }
     img {
       width: 100%;
       max-width: 750px;
@@ -25,11 +31,25 @@
       border-radius: 2px;
 
       box-shadow: $shadow-3;
+
+      @media screen and (max-width: $mobileWidth) {
+        min-height: 0;
+        max-height: 100%;
+
+        width: 100%;
+      }
+      @media screen and (max-width: $tabletWidth) {
+        min-height: 0;
+        max-height: 100%;
+
+        width: 100%;
+      }
     }
   }
 
   &__content {
     margin: 40px 0 10px;
+
     header {
       font-size: 1.5rem;
     }
@@ -59,6 +79,56 @@
   }
 }
 
+@media screen and (max-width: $mobileWidth) {
+  .country-card {
+    grid-template-columns: minmax(0, 1fr);
+    column-gap: none;
+    row-gap: 15px;
+    margin-top: 60px;
+
+    &__content {
+      margin: 20px 0 10px;
+
+      header {
+        font-size: 1.25rem;
+      }
+      footer {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        p {
+          white-space: nowrap;
+          font-weight: 600;
+          b {
+            font-size: 1.05rem;
+          }
+        }
+      }
+    }
+    &__borders {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    &__main-info {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      column-gap: 0;
+      row-gap: 30px;
+
+      margin: 25px 0 35px;
+    }
+  }
+}
+
+@media screen and (max-width: $tabletWidth) {
+  .country-card {
+    grid-template-columns: minmax(0, 1fr);
+    column-gap: none;
+    row-gap: 15px;
+    margin-top: 60px;
+  }
+}
 .dark {
   .country-card {
     &__flag {

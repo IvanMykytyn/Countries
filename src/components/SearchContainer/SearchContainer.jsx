@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 
 // icons
 import { AiOutlineSearch } from 'react-icons/ai'
+import { MdClear } from 'react-icons/md'
 
 // components
 import { FormRowRegionSelect } from '../'
@@ -21,6 +22,9 @@ const SearchContainer = () => {
   const handleSearch = (e) => {
     dispatch(setSearch(e.target.value))
   }
+  const clearSearch = () => {
+    dispatch(setSearch(''))
+  }
 
   return (
     <div className="search">
@@ -32,7 +36,13 @@ const SearchContainer = () => {
             name="search"
             value={search}
             onChange={handleSearch}
+            autoComplete="false"
             placeholder="Search for a country..."
+          />
+          <MdClear
+            onClick={clearSearch}
+            className="search__input__icon-clear"
+            size={22}
           />
         </div>
         <div className="search_filter">

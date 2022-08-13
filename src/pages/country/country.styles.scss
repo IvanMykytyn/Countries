@@ -9,12 +9,13 @@
     padding: 170px 80px 120px;
     min-height: 100vh;
 
-    // @media screen and (max-width: $mobileWidth) {
-    //   padding: 115px 25px 40px;
-    // }
-    // @media screen and (max-width: $tabletWidth) {
-    //   padding: 115px 45px 40px;
-    // }
+    @media screen and (max-width: $tabletWidth) {
+      padding: 125px 45px 40px;
+    }
+
+    @media screen and (max-width: $mobileWidth) {
+      padding: 125px 25px 40px;
+    }
 
     .go-back {
       background-color: $white;
@@ -34,6 +35,10 @@
         gap: 10px;
 
         padding: 10px 40px;
+
+        @media screen and (max-width: $mobileWidth) {
+          padding: 8px 35px;
+        }
 
         color: $the-darkest-blue;
         font-size: 1.1rem;
