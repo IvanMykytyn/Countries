@@ -16,7 +16,7 @@ Users should be able to:
 
 
 ### Links
-- Live Site URL: [Countries](https://all-countr1es.netlify.app)
+- Live Site: [Countries](https://all-countr1es.netlify.app)
 - API: [REST Countries API](https://restcountries.com)
 
 ### Built with
@@ -26,6 +26,7 @@ Users should be able to:
 - Semantic HTML5 markup
 - SCSS
 - Flexbox, CSS Grid
+- Toastify
 
 ## Run The App Locally
 
